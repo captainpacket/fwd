@@ -37,7 +37,7 @@ Write-host ("Current user " + $uname + " has enough permissions.")
 
 ## Select subscriptions
 
-$subscriptions = Get-AzSubscription
+$subscriptions = Get-AzSubscription | Where-Object -Property State -EQ 'Enabled'
 
 ## Show available subscriptions
 

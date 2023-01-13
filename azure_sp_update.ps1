@@ -175,7 +175,7 @@ Write-host ("Saving to azure_subscriptions.json")
 $data_sources | ConvertTo-Json | Out-File $json
 Write-host ("Contents of azure_subscriptions.json")
 $data_sources | ConvertTo-Json
-Write-host ("Posting to fwd.app")
+Write-host ("Posting to " + $apphost)
 
 $url = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts"
 $fullurl = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts/" + $setupid  

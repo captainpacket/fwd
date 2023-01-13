@@ -181,7 +181,7 @@ $url = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts"
 $fullurl = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts/" + $setupid  
 
 $delete = Invoke-WebRequest -Method DELETE -Uri $fullurl -ContentType "application/json" -Headers $Headers
-$delete.StatusCode
+Write-Host ("Deleting old cloud setup: " + $delete.StatusCode + " " + $delete.StatusDescription)
 Start-Sleep -Seconds 5
 $update = Invoke-WebRequest -Method POST -Uri $url -Body ($data_sources|ConvertTo-Json) -ContentType "application/json" -Headers $Headers
-$update.StatusCode
+Write-Host ("Writing new cloud setup: " + $update.StatusCode + " " + $update.StatusDescription)

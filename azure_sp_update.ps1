@@ -91,11 +91,13 @@ foreach ($s in $selectedSubscriptions) {
 Write-host ("Creating or updating service principal") 
 $sp = Get-AzADServicePrincipal
 if ($sp.DisplayName.Contains($sp_name)) {
-   $sp = Get-AzADServicePrincipal -DisplayName $sp_name   
+   $sp = Get-AzADServicePrincipal -DisplayName $sp_name
+   Update-AzADApplication -ApplicationId $sp.AppId -SignInAudience "AzureADMultipleOrgs"
    $cl_s_p = New-AzADSpCredential -ServicePrincipalObject $sp
    }
 else {
    $sp = New-AzADServicePrincipal -DisplayName $sp_name
+   Update-AzADApplication -ApplicationId $sp.AppId -SignInAudience "AzureADMultipleOrgs"
    $cl_s_p = New-AzADSpCredential -ServicePrincipalObject $sp
    }
 

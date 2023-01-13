@@ -180,7 +180,8 @@ Write-host ("Posting to fwd.app")
 $url = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts"
 $fullurl = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts/" + $setupid  
 
-Invoke-RestMethod -Method DELETE -Uri $fullurl -ContentType "application/json" -Headers $Headers
+$delete = Invoke-WebRequest -Method DELETE -Uri $fullurl -ContentType "application/json" -Headers $Headers
+$delete.StatusCode
 Start-Sleep -Seconds 5
-Invoke-RestMethod -Method POST -Uri $url -Body ($data_sources|ConvertTo-Json) -ContentType "application/json" -Headers $Headers
-Write-host ("Success!")
+$update = Invoke-WebRequest -Method POST -Uri $url -Body ($data_sources|ConvertTo-Json) -ContentType "application/json" -Headers $Headers
+$update.StatusCode

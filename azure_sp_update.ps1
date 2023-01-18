@@ -1,13 +1,12 @@
-$apphost = 'fwd.app' 
-$networkid = '154149'
-$setupid = 'azure_collect'
-$sp_name = 'ForwardServicePrincipal'
-$creds = '.\creds.txt'
+$apphost = $Env:AppHost 
+$networkid = $Env:NetworkID
+$setupid = $Env:SetupID
+$sp_name = $Env:ServicePrincipal
 
 ##Check Forward permissions
 
-$user = (Get-Content $creds -TotalCount 2)[-2]
-$pass = (Get-Content $creds -TotalCount 2)[-1]
+$user = $Env:FwdUser
+$pass = $Env:FwdPass
 $pair = "$($user):$($pass)"
 $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
 $basicAuthValue = "Basic $encodedCreds"
@@ -18,7 +17,7 @@ $Headers = @{
 $testurl = "https://" + $apphost + "/api/version"
 $test = Invoke-WebRequest -Uri $testurl -Headers $Headers
 if ($test -eq $null) {
-    Write-Host ("Incorrect Forward Enterprise credentials for " + $apphost + " in " + $creds)
+    Write-Host ("Incorrect Forward Enterprise credentials for " + $apphost)
     break
 }
 
@@ -184,13 +183,6 @@ foreach ($s in $selectedSubscriptions) {
     $subscription = [Subscription]::new($cl_s_s_id, $cl_s_c_id, $cl_s_t_id, $cl_s_p.SecretText, 'AZURE', $test, $true)
     $data_sources.subscriptions += $subscription
 }
-
-$json = "azure_subscriptions_" + [DateTime]::Now.ToString("yyyyMMdd-HHmmss") + ".json"
-Write-host ("Saving to azure_subscriptions.json")
-$data_sources | ConvertTo-Json | Out-File $json
-Write-host ("Contents of azure_subscriptions.json")
-$data_sources | ConvertTo-Json
-Write-host ("Posting to " + $apphost)
 
 $url = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts"
 $fullurl = "https://" + $apphost + "/api/networks/" + $networkid + "/cloudAccounts/" + $setupid  

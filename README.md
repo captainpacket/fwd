@@ -14,8 +14,8 @@ You can install these packages using pip:
 `pip install pandas requests`
 
 ## Usage
-
-`usage: post_locations.py [-h] --host HOST --network-id NETWORK_ID --username USERNAME --password PASSWORD`
+`
+usage: post_locations.py [-h] --host HOST --network-id NETWORK_ID --username USERNAME --password PASSWORD`
 
 ## Command Line Arguments
 

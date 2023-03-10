@@ -35,7 +35,7 @@ The script accepts the following command line arguments:
 
 To specify command line arguments, use the following format:
 
-python post_city_data.py --host example.com --network-id 12345 --username myusername --password mypassword
+`python post_city_data.py --host example.com --network-id 12345 --username myusername --password mypassword`
 
 ## Washington Cities CSV File
 
@@ -45,7 +45,7 @@ To download the file, either clone this repository using Git, or download the fi
 
 To clone the repository using Git, run the following command in your terminal:
 
-git clone https://github.com/fracticated/fwd.git
+`git clone https://github.com/fracticated/fwd.git`
 
 This will create a local copy of the repository on your computer, including the `washington_cities.csv` file.
 

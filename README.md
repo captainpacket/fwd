@@ -48,7 +48,7 @@ Alternatively, you can download the file directly from the GitHub website by fol
 2. Click on the `washington_cities.csv` file in the file list.
 3. Click the "Download" button to download the file.
 
-Once you have downloaded the `washington_cities.csv` file, place it in the same directory as the `post_city_data.py` script. Then, you can run the script using the instructions provided in the "Usage" section above.
+Once you have downloaded the `washington_cities.csv` file, place it in the same directory as the `post_locations.py` script. Then, you can run the script using the instructions provided in the "Usage" section above.
 
 ## License
 

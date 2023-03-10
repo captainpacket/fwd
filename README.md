@@ -1,6 +1,6 @@
 # Post City Data to API
 
-This script reads in a CSV file containing city data for Washington state, filters the data to include only Washington cities, and posts the data to an API endpoint.
+This script reads in a CSV file containing city data for Washington state, and posts the data to an API endpoint.
 
 ## Requirements
 

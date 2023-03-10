@@ -11,31 +11,24 @@ To run this script, you will need the following packages:
 
 You can install these packages using pip:
 
-pip install pandas requests
+`pip install pandas requests`
 
 ## Usage
 
-To use this script, follow these steps:
-
-1. Create a CSV file containing city data, in the format "city","city_ascii","city_alt","lat","lng","country","iso2","iso3","admin_name","admin_name_ascii","admin_code","admin_type","capital","density","population","population_proper","ranking","timezone","same_name","id".
-2. Filter the data to include only Washington state cities.
-3. Replace the `your_api_host` and `your_network_id` variables in the script with the appropriate values for your API endpoint.
-4. Run the script using the following command:
-
-python post_city_data.py
+`usage: post_locations.py [-h] --host HOST --network-id NETWORK_ID --username USERNAME --password PASSWORD`
 
 ## Command Line Arguments
 
 The script accepts the following command line arguments:
 
-- `--host`: The API host (required)
-- `--network-id`: The network ID (required)
-- `--username`: The API username (required)
-- `--password`: The API password (required)
+- `--host`: The Forward Networks API host (required)
+- `--network-id`: The Forward Networks network ID (required)
+- `--username`: The Forward Networks API username (required)
+- `--password`: The Forward Networks API password (required)
 
 To specify command line arguments, use the following format:
 
-`python post_city_data.py --host example.com --network-id 12345 --username myusername --password mypassword`
+`python post_locations.py --host example.com --network-id 12345 --username myusername --password mypassword`
 
 ## Washington Cities CSV File
 

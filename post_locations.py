@@ -29,7 +29,7 @@ for index, row in df.iterrows():
         "lng": row['lng']
     }
     # make the API request with basic authentication
-    response = requests.post(api_url, json=payload, auth=(args.username, args.password))
+    response = requests.post(api_url, json=payload, auth=(args.username, args.password), verify=False)
     # check the response status code
     if response.status_code == 200:
         print(f"Posted data for {row['city_ascii']} successfully")
